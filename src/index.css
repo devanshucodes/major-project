@@ -1,3 +1,185 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Mobile-first base styles */
+:root {
+  --primary-color: #16a34a;
+  --primary-hover: #15803d;
+}
+
+html {
+  font-size: 14px;
+}
+
+body {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Typography */
+@media (min-width: 640px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+/* Container styles */
+.container-custom {
+  width: 100%;
+  padding: 0.75rem;
+  margin: 0 auto;
+}
+
+@media (min-width: 480px) {
+  .container-custom {
+    padding: 1rem;
+  }
+}
+
+@media (min-width: 640px) {
+  .container-custom {
+    max-width: 640px;
+    padding: 1.5rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .container-custom {
+    max-width: 768px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container-custom {
+    max-width: 1024px;
+  }
+}
+
+/* Form styles */
+.form-input {
+  width: 100%;
+  padding: 0.75rem;
+  border-radius: 0.5rem;
+  border: 1px solid #e5e7eb;
+  font-size: 16px; /* Prevents zoom on iOS */
+  appearance: none;
+  background-color: white;
+}
+
+.form-input:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 2px rgba(22, 163, 74, 0.2);
+}
+
+.form-label {
+  display: block;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #374151;
+  margin-bottom: 0.375rem;
+}
+
+/* Button styles */
+.btn-primary {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border-radius: 9999px;
+  background-color: var(--primary-color);
+  color: white;
+  font-weight: 500;
+  transition: all 0.2s;
+}
+
+.btn-primary:hover {
+  background-color: var(--primary-hover);
+}
+
+@media (min-width: 640px) {
+  .btn-primary {
+    width: auto;
+    min-width: 200px;
+    padding: 0.875rem 1.5rem;
+  }
+}
+
+/* Modal styles */
+.modal-mobile {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 50;
+}
+
+.modal-content-mobile {
+  width: 90%;
+  max-width: 400px;
+  background: white;
+  border-radius: 1rem;
+  padding: 1.25rem;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+@media (min-width: 640px) {
+  .modal-content-mobile {
+    width: 420px;
+    padding: 1.5rem;
+  }
+}
+
+/* Grid layouts */
+.grid-responsive {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 640px) {
+  .grid-responsive {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+}
+
+/* Success animation */
+.success-animation {
+  animation: scale-up 0.4s ease-out;
+}
+
+@keyframes scale-up {
+  0% {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* QR code container */
+.qr-container {
+  display: flex;
+  justify-content: center;
+  margin: 1.5rem 0;
+}
+
+@media (max-width: 380px) {
+  .qr-container {
+    margin: 1rem 0;
+  }
+}
+
+/* Hide scrollbar but keep functionality */
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
